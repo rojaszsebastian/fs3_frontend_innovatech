@@ -1,9 +1,14 @@
-import DashboardPage from "./pages/DashboardPage";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import DashboardPage from './pages/DashboardPage';
 
 function App() {
-
     return (
-        <DashboardPage />
+        <BrowserRouter>
+            <div className="App">
+                <DashboardPage />
+            </div>
+        </BrowserRouter>
     );
 }
 

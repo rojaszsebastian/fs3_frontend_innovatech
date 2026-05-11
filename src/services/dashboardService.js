@@ -1,8 +1,13 @@
-import api from "../api/dashboardApi";
+import { bffApi } from '../api/dashboardApi';
 
-export const getDashboardSummary = async () => {
-
-    const response = await api.get("/dashboard/summary");
-
-    return response.data;
+export const getDashboardResumen = async (proyectoId, recursoId) => {
+    try {
+        const response = await bffApi.get(`/dashboard/resumen`, {
+            params: { proyectoId, recursoId }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error al conectar con el BFF:", error);
+        throw error;
+    }
 };
