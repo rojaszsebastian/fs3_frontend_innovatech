@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# 🚀 Innovatech Solutions - Frontend (Interfaz de Usuario)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta aplicación es el punto de interacción final del ecosistema de Innovatech Solutions.  
+Proporciona una interfaz administrativa moderna, reactiva y eficiente para la gestión de proyectos y talento humano, diseñada bajo estándares de alto rendimiento y escalabilidad.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🏗️ Arquitectura de Software
 
-### `npm start`
+La aplicación implementa patrones avanzados de desarrollo frontend para garantizar una experiencia de usuario fluida (UX) y una arquitectura mantenible:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Single Page Application (SPA) & Routing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Utiliza un sistema de enrutamiento dinámico con **React Router**.  
+Implementa un patrón de layout centralizado mediante `MainLayout` y componentes tipo `Outlet`, permitiendo navegación instantánea sin recargas de página.
 
-### `npm test`
+### Reactividad y Estado Sincronizado
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+El dashboard implementa un motor de búsqueda reactivo basado en hooks (`useState`, `useEffect`).  
+Al detectar cambios en los parámetros de entrada (ID Proyecto/Recurso), el sistema sincroniza automáticamente la vista con el orquestador BFF, garantizando datos en tiempo real.
 
-### `npm run build`
+### Desacoplamiento de Consumo (Service Layer)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aísla la lógica de las peticiones HTTP del renderizado de componentes.  
+Mediante una capa de servicios (`dashboardService.js`) y una instancia centralizada de Axios (`dashboardApi.js`), se gestionan interceptores de red y tiempos de espera (`timeout`) de forma global.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Stack Tecnológico
 
-### `npm run eject`
+- **Librería Principal:** React 19+ (Hooks API)
+- **Estilos y UI:** Bootstrap 5.3+ (responsive y mobile-first)
+- **Gestión de Red:** Axios con soporte para promesas y cancelación de peticiones
+- **Iconografía:** Lucide React
+- **Navegación:** React Router 7.x
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Guía de Despliegue y Ejecución
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📋 Prerrequisitos
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js v18.x o superior
+- npm v9.x o superior
+- BFF Orquestador operativo en el puerto **8080**
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### ⚡ Arranque del Entorno
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Instalación de dependencias
 
-### Code Splitting
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Ejecución del servidor de desarrollo
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧪 Consumo de Datos (Contrato BFF)
 
-### Making a Progressive Web App
+El frontend consume el endpoint de agregación asíncrona para proyectar el resumen ejecutivo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Endpoint Consumido:** `GET /api/dashboard/resumen`
 
-### Advanced Configuration
+### Contrato de Interfaz
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `nombreProyecto`: String
+- `totalHoras`: Integer
+- `capacidadResponsable`: Double *(Dato dinámico desde MS RRHH)*
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🛡️ Estándares de Seguridad y Gobernanza
 
-### `npm run build` fails to minify
+- **Manejo de Errores Resiliente:** Estados visuales de *carga* y *error* para evitar colapsos de la UI
+- **Seguridad en Variables:** Uso de prefijos `REACT_APP_` para endpoints sensibles
+- **Validación de Tipos:** Renderizado condicional para evitar errores `null` o `undefined`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+© 2026 Innovatech Solutions - Ingeniería Civil Informática - Documentación Técnica (EV2)

@@ -1,27 +1,43 @@
+/* Navbar Superior */
 .navbar {
     height: 70px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background-color: #1a1d21 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 .navbar-brand {
-    font-size: 1.3rem;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
+/* Sidebar Lateral */
 .sidebar {
-    background-color: white;
+    background-color: #ffffff;
     min-height: 100vh;
+    width: 260px;
+    transition: all 0.3s;
 }
 
 .sidebar .nav-link {
-    color: #495057;
-    font-weight: 500;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
+    color: #64748b;
+    font-weight: 600;
+    padding: 12px 16px;
+    margin: 4px 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
 }
 
 .sidebar .nav-link:hover {
-    background-color: #e9ecef;
+    background-color: #f1f5f9;
+    color: #1e293b;
+}
+
+.sidebar .nav-link.active {
+    background-color: #0d6efd;
+    color: #ffffff !important;
+    box-shadow: 0 4px 6px -1px rgba(13, 110, 253, 0.3);
 }
