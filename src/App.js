@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import DashboardPage from './pages/DashboardPage';
-
-const RecursosPage = () => <h2 className="fw-bold">Gestión de Recursos Humanos</h2>;
-const ProyectosPage = () => <h2 className="fw-bold">Gestión de Proyectos Activos</h2>;
+import RecursosPage from './pages/RecursosPage';
+import ProyectosPage from './pages/ProyectosPage';
+import NotificacionesPage from './pages/NotificacionesPage';
 
 function App() {
     return (
@@ -14,6 +14,7 @@ function App() {
                     <Route path="/" element={<DashboardPage />} />
                     <Route path="/recursos" element={<RecursosPage />} />
                     <Route path="/proyectos" element={<ProyectosPage />} />
+                    <Route path="/notificaciones" element={<NotificacionesPage />} />
                 </Route>
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
