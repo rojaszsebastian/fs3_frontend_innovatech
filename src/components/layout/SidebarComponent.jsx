@@ -22,6 +22,11 @@ export default function SidebarComponent() {
                         Gestión de Proyectos
                     </NavLink>
                 </li>
+                <li className="nav-item mb-2">
+                    <NavLink to="/notificaciones" className={({ isActive }) => `nav-link ${isActive ? 'active' : 'text-dark'}`}>
+                        Notificaciones
+                    </NavLink>
+                </li>
             </ul>
         </div>
     );
